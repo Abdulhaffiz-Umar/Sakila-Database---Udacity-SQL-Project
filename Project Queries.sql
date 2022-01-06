@@ -123,7 +123,7 @@ WITH countries AS (
     FROM countries
 ORDER BY 2 DESC;
 
--- to get the total sales made, we would use this formula and not limit it to just 10
+-- to get the figures for the bars (films, total sales, and total rentals, we would use this formula
 
 WITH t1 as 
 		(SELECT (a.first_name || ' ' || a.last_name) actor, 
@@ -144,4 +144,5 @@ SELECT DISTINCT actor,
 				COUNT(actor) OVER (PARTITION BY actor) as rental_count, 
 				SUM(amount) OVER (PARTITION BY actor) as income_generated
 FROM t1 
-ORDER BY 3 DESC
+ORDER BY 1 DESC
+
